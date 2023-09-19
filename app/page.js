@@ -3,11 +3,11 @@ import StudentInfo from "./studentInfo";
 
 export default function page() {
   return (
-      <main>
-        <h1>CPRG 306: Web Development 2 - Assignments</h1>
+      <div>
+        <h1 className="font-bold , text-lg" >CPRG 306: Web Development 2 - Assignments</h1>
         <StudentInfo/>
         <Link href="./week2">week 2</Link>
-      </main>
+      </div>
   )
 }
 
