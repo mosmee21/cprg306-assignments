@@ -3,8 +3,9 @@ import ItemList from './item-list';
 
 function Page() {
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-2xl mb-4">Shopping List</h1>
+    <div className="min-h-screen bg-gray-100 py-8">
+      <h1 className="text-center text-3xl font-bold mb-6 text-blue-600">Shopping List</h1>
+      <div className="container mx-auto max-w-2xl"></div>
       <ItemList />
     </div>
   );

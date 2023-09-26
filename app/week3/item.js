@@ -2,9 +2,9 @@ import React from 'react';
 
 function Item({ name, quantity, category }) {
   return (
-    <li className="border-b border-gray-200 py-2">
-      <span className="font-bold">{name}</span>
-      <p className="mt-2 text-sm text-green-500">Buy {quantity} in {category}</p>
+    <li className="bg-blue-100 border p-4 rounded-md shadow-md mb-4">
+      <h3 className="font-bold text-xl mb-2 text-blue-700">{name}</h3>
+      <p className="text-gray-700 text-base mb-1 pl-2 py-1">Buy {quantity} in {category}</p>
     </li>
   );
 }
