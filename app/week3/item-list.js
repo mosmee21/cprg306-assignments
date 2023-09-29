@@ -74,7 +74,7 @@ function ItemList() {
     category:"household",
   };
 
-  return (
+return (
     <div>
       <Item
         name={item1.name}
