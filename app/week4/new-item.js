@@ -19,7 +19,6 @@ export default function NewItem() {
     <main>
       <div className="min-h-screen bg-blue-gray-100 flex items-center justify-center">
         <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
-
           <form onSubmit={handleSubmit}>
             <label className="block mb-4">
               <span className="text-gray-800">Name:</span>
@@ -31,20 +30,22 @@ export default function NewItem() {
                 className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
               />
             </label>
-
-            <label className="block mb-4">
-              <span className="text-gray-800">Quantity:</span>
-              <input
-                type="number"
-                min="1"
-                max="99"
-                required
-                onChange={(e) => setQuantity(Number(e.target.value))}
-                value={quantity}
-                className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
-              />
-            </label>
-
+            <div className="flex justify-between mb-4">
+              <div className="w-1/2 pr-2">
+              <label className="block mb-4">
+                <span className="text-gray-800">Quantity:</span>
+                <input
+                  type="number"
+                  min="1"
+                  max="99"
+                  required
+                  onChange={(e) => setQuantity(Number(e.target.value))}
+                  value={quantity}
+                  className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
+                />
+              </label>
+            </div>
+            <div className="w-1/2 pl-2">
             <label className="block mb-4">
               <span className="text-gray-800">Category:</span>
               <select
@@ -66,11 +67,9 @@ export default function NewItem() {
                 <option value="Other">Other</option>
               </select>
             </label>
-
-            <button
-              type="submit"
-              className="w-full py-2 px-4 bg-sky-600 hover:bg-sky-500 rounded-md text-white"
-            >
+            </div>
+            </div>
+             <button type="submit"className="w-full py-2 px-4 bg-sky-600 hover:bg-sky-500 rounded-md text-white">
               Submit
             </button>
           </form>
