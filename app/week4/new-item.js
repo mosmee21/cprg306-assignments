@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from 'react';
 
 function NewItem() {
@@ -18,10 +16,10 @@ function NewItem() {
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
-      <form onSubmit={handleSubmit} className="w-full">
+    <div className="p-6 bg-white">
+      <form onSubmit={handleSubmit} className="p-4">
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+          <label className="text-lg mb-2" htmlFor="name">
             Name:
           </label>
           <input 
@@ -29,12 +27,12 @@ function NewItem() {
             value={name} 
             onChange={(e) => setName(e.target.value)} 
             required 
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="p-2 border"
             id="name"
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="quantity">
+          <label className="text-lg mb-2" htmlFor="quantity">
             Quantity:
           </label>
           <input 
@@ -44,12 +42,35 @@ function NewItem() {
             value={quantity} 
             onChange={(e) => setQuantity(Number(e.target.value))} 
             required 
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="p-2 border"
             id="quantity"
           />
         </div>
-        {/* Additional form fields will go here */}
-        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <div className="mb-4">
+          <label className="text-lg mb-2" htmlFor="category">
+            Category:
+          </label>
+          <select 
+            value={category} 
+            onChange={(e) => setCategory(e.target.value)} 
+            required 
+            className="p-2 border"
+            id="category"
+          >
+            <option value="Produce">Produce</option>
+            <option value="Dairy">Dairy</option>
+            <option value="Bakery">Bakery</option>
+            <option value="Meat">Meat</option>
+            <option value="Frozen Foods">Frozen Foods</option>
+            <option value="Canned Goods">Canned Goods</option>
+            <option value="Dry Goods">Dry Goods</option>
+            <option value="Beverages">Beverages</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Household">Household</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <button type="submit" className="p-2 bg-blue-500 text-white">
           Submit
         </button>
       </form>
