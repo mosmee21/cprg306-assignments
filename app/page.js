@@ -7,7 +7,8 @@ export default function page() {
         <h1 className="font-bold , text-xl mt-10 mb-10" >CPRG 306: Web Development 2 - Assignments</h1>
         <StudentInfo/>
         <Link href="./week2">week 2</Link><br></br> 
-        <Link href="./week3">week 3</Link>
+        <Link href="./week2">week 3</Link><br></br> 
+        <Link href="./week3">week 4</Link>
       </div>
   )
 }
