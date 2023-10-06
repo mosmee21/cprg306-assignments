@@ -3,10 +3,10 @@ import StudentInfo from "./studentInfo";
 
 export default function page() {
   return (
-      <div className="text-center">
-        <h1 className="font-bold , text-xl mt-10 mb-10" >CPRG 306: Web Development 2 - Assignments</h1>
-        <StudentInfo/>
-        <Link href="./week2">week 2</Link><br></br> 
+      <div className="text-center text-gray-800 bg-yellow-200 p-10 m-10 rounded-lg font-bold ">
+        <h1 className="text-xl mt-10 mb-10" >CPRG 306: Web Development 2 - Assignments</h1>
+        <StudentInfo/><br></br>
+        <Link href="./week2" >week 2</Link><br></br> 
         <Link href="./week3">week 3</Link><br></br> 
         <Link href="./week4">week 4</Link>
       </div>

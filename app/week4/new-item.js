@@ -13,15 +13,15 @@ export default function NewItem() {
     setName("");
     setQuantity(1);
     setCategory("Produce");
-  };
+};
 
   return (
     <main>
       <div className="min-h-screen bg-blue-gray-100 flex items-center justify-center">
-        <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+        <div className="w-full max-w-md bg-blue-900 p-8 rounded-lg shadow-md">
           <form onSubmit={handleSubmit}>
             <label className="block mb-4">
-              <span className="text-gray-800">Name:</span>
+              <span className="text-white">Name:</span>
               <input
                 type="text"
                 required
@@ -33,7 +33,7 @@ export default function NewItem() {
             <div className="flex justify-between mb-4">
               <div className="w-1/2 pr-2">
               <label className="block mb-4">
-                <span className="text-gray-800">Quantity:</span>
+                <span className="text-white">Quantity:</span>
                 <input
                   type="number"
                   min="1"
@@ -47,7 +47,7 @@ export default function NewItem() {
             </div>
             <div className="w-1/2 pl-2">
             <label className="block mb-4">
-              <span className="text-gray-800">Category:</span>
+              <span className="text-white">Category:</span>
               <select
                 required
                 onChange={(e) => setCategory(e.target.value)}
