@@ -8,15 +8,16 @@ export default function NewItem() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
+    alert("Name: " + name + "\n" + "Quantity: " + quantity + "\n" + "Category: " + category);
     const item = { name, quantity, category };
     console.log(item);
     setName("");
     setQuantity(1);
     setCategory("Produce");
 };
-
-  return (
-    <main>
+return (
+  <main>
       <div className="min-h-screen bg-blue-gray-100 flex items-center justify-center">
         <div className="w-full max-w-md bg-blue-900 p-8 rounded-lg shadow-md">
           <form onSubmit={handleSubmit}>
@@ -75,6 +76,7 @@ export default function NewItem() {
           </form>
         </div>
       </div>
+
     </main>
   );
 }
