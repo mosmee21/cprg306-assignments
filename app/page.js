@@ -8,7 +8,8 @@ export default function page() {
         <StudentInfo/><br></br>
         <Link href="./week2" >week 2</Link><br></br> 
         <Link href="./week3">week 3</Link><br></br> 
-        <Link href="./week4">week 4</Link>
+        <Link href="./week4">week 4</Link><br></br>
+        <Link href="./week5">week 5</Link>
       </div>
   )
 }
