@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState } from 'react';
 import Item from './item';
 import itemsData from './items.json';
@@ -17,17 +17,17 @@ export default function ItemList() {
       <div className="p-4">
         <button
           onClick={() => setSortBy('name')}
-          className={`bg-${sortBy === 'name' ? 'blue' : 'gray'}-500 text-white px-4 py-2 mr-2 rounded`}
+          className={`${sortBy === 'name'} m-5 bg-orange-900 text-white px-4 py-2 mr-4 `}
         >
           Sort by Name
         </button>
         <button
         onClick={() => setSortBy('category')}
-        className={`bg-${sortBy === 'category' ? 'blue' : 'gray'}-500 text-white px-4 py-2 rounded`}
+        className={`${sortBy === 'category'} bg-orange-900 text-white px-4 py-2 ml-2 `}
       >
         Sort by Category
       </button>
-      <ul className="mt-4">
+      <ul className="mt-5">
         {items.map(item => (
           <Item key={item.id} {...item} />
         ))}
