@@ -6,15 +6,14 @@ import itemsData from './items.json';
 
 export default function ItemList() {
   const [sortBy, setSortBy] = useState("name");
-
+  
   let items = [...itemsData];
 
   if (sortBy === "name") {
     items.sort((item1, item2) => item1.name.localeCompare(item2.name));}
   else if (sortBy === "category") {
     items.sort((item1, item2) => item1.category.localeCompare(item2.category));}
-  
-    return (
+  return (
       <div className="p-4">
         <button
           onClick={() => setSortBy('name')}
@@ -28,11 +27,13 @@ export default function ItemList() {
       >
         Sort by Category
       </button>
-      <ul className="mt-5">
-        {items.map(item => (
-          <Item key={item.id} {...item} />
-        ))}
-      </ul>
+    
+        <ul className="mt-5">
+          {items.map((item) => (
+            <Item key={item.id} {...item} />
+          ))}
+        </ul>
+      
     </div>
   );
 }
