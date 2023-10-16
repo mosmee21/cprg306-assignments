@@ -7,9 +7,9 @@ export default function NewItem({onAddItem}) {
   const [category, setCategory] = useState("Produce");
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    const item = { name, quantity, category };
-    onAddItem(item);
+  event.preventDefault();
+  const item = { name, quantity, category };
+  onAddItem(item);
 
     setName("");
     setQuantity(1);
