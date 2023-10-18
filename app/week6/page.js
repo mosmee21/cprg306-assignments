@@ -1,6 +1,6 @@
-"use client "
+"use client";
 
-import React , { useState } from 'react';
+import React ,{ useState } from 'react';
 import ItemList from './item-list';
 import NewItem from './new-item';
 import itemsData from './items.json';
@@ -14,7 +14,8 @@ function Page() {
     };
     return (
     <div className="min-h-screen bg-gradient-to-r from-lime-500 to-cyan-500 py-2 ">
-      <h1 className=" text-3xl  font-bold  ml-10  text-black">Shopping List</h1>
+      <h1 className=" text-3xl  font-bold  ml-10 mb-2 text-black">Shopping List</h1>
+      <h2 className="text-2xl font-bold ml-10 text-black">Add New Item</h2>
       <div className="container mx-auto max-w-2xl">
       <NewItem onAddItem={handleAddItem} />
       <ItemList items = {items} />

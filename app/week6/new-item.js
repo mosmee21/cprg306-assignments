@@ -1,14 +1,17 @@
 "use client";
-import { useState } from "react";
+import React , { useState } from "react";
+import PropTypes from 'prop-types';
 
-export default function NewItem({onAddItem}) {
+function NewItem({onAddItem}) {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("Produce");
 
-  const handleSubmit = (event) => {
+  function  handleSubmit (event){
   event.preventDefault();
+
   const item = { name, quantity, category };
+
   onAddItem(item);
 
     setName("");
@@ -24,6 +27,7 @@ return (
               <span className="text-white">Name:</span>
               <input
                 type="text"
+                id="name"
                 required
                 onChange={(e) => setName(e.target.value)}
                 value={name}
@@ -36,6 +40,7 @@ return (
                 <span className="text-white">Quantity:</span>
                 <input
                   type="number"
+                  id="quantity"
                   min="1"
                   max="99"
                   required
@@ -49,6 +54,7 @@ return (
             <label className="block mb-4">
               <span className="text-white">Category:</span>
               <select
+                id="category"
                 required
                 onChange={(e) => setCategory(e.target.value)}
                 value={category}
@@ -70,7 +76,7 @@ return (
             </div>
             </div>
              <button type="submit"className="w-full py-2 px-4 bg-sky-600 hover:bg-sky-500 rounded-md text-white">
-              Submit
+             Add Item
             </button>
           </form>
         </div>
@@ -79,3 +85,9 @@ return (
     </main>
   );
 }
+
+NewItem.propTypes = {
+  onAddItem: PropTypes.func.isRequired,
+};
+
+export default NewItem;
