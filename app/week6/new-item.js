@@ -20,14 +20,15 @@ function NewItem({onAddItem}) {
 };
 return (
   <main >
-      <div className="min-h-screen bg-blue-gray-100 ml-10 justify-center">
+      <div className=" bg-blue-gray-100 ml-10 justify-center">
         <div className="w-full max-w-md bg-blue-900 p-8 rounded-lg shadow-md">
           <form onSubmit={handleSubmit}>
             <label className="block mb-4">
-              <span className="text-white">Name:</span>
+              <span className="text-white">Add New Item:</span>
               <input
                 type="text"
                 id="name"
+                placeholder="Item name"
                 required
                 onChange={(e) => setName(e.target.value)}
                 value={name}

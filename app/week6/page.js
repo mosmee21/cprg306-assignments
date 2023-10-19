@@ -15,7 +15,6 @@ function Page() {
     return (
     <div className="min-h-screen bg-gradient-to-r from-lime-500 to-cyan-500 py-2 ">
       <h1 className=" text-3xl  font-bold  ml-10 mb-4 text-black">Shopping List</h1>
-      <h2 className="text-2xl font-bold ml-10 mb-4 text-black">Add New Item</h2>
       <NewItem onAddItem={handleAddItem} />
       <ItemList items = {items} />
       </div>

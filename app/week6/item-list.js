@@ -21,7 +21,7 @@ function ItemList({ items }) {
     <div className="p-4 ">
       <button
         onClick={() => setSortBy('name')}
-        className={`${sortBy === 'name' ? 'active-class' : ''} m-5 bg-orange-900 text-amber-300 px-2 py-2 mr-4 mt-0`}
+        className={`${sortBy === 'name' ? 'active-class' : ''} m-5 bg-orange-900 text-amber-300 px-2 py-2 mr-4`}
       >
         Sort by Name
       </button>
