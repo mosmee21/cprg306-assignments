@@ -19,8 +19,8 @@ function NewItem({onAddItem}) {
     setCategory("Produce");
 };
 return (
-  <main>
-      <div className="min-h-screen bg-blue-gray-100 flex items-center justify-center">
+  <main >
+      <div className="min-h-screen bg-blue-gray-100 ml-10 justify-center">
         <div className="w-full max-w-md bg-blue-900 p-8 rounded-lg shadow-md">
           <form onSubmit={handleSubmit}>
             <label className="block mb-4">
@@ -76,7 +76,7 @@ return (
             </div>
             </div>
              <button type="submit"className="w-full py-2 px-4 bg-sky-600 hover:bg-sky-500 rounded-md text-white">
-             Add Item
+             +
             </button>
           </form>
         </div>
