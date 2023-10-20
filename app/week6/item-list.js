@@ -18,18 +18,21 @@ function ItemList({ items }) {
 
   return (
     <div className="p-4">
-      <button
-        onClick={() => setSortBy('name')}
-        className={`${sortBy === 'name' ? 'active-class' : ''} m-5 bg-blue-900 text-white px-2 py-2 mr-4`}
-      >
-        Sort by Name
-      </button>
-      <button
-        onClick={() => setSortBy('category')}
-        className={`${sortBy === 'category' ? 'active-class' : ''} bg-blue-900 text-white px-2 py-2 ml-2 `}
-      >
-        Sort by Category
-      </button>
+      <div className="flex items-center ml-5">
+        <span className="mr-2 text-lg text-black font-bold">Sort by:</span>
+        <button
+          onClick={() => setSortBy('name')}
+          className={`${sortBy === 'name' ? 'active-class' : ''} m-2 bg-blue-900 text-white px-4 py-2 mr-2 `}
+        >
+          Name
+        </button>
+        <button
+          onClick={() => setSortBy('category')}
+          className={`${sortBy === 'category' ? 'active-class' : ''} m-2 bg-blue-900 text-white px-4 py-2 ml-2`}
+        >
+          Category
+        </button>
+      </div>
       <ul>
         {sortedItems.map(item => (
           <Item key={item.id} {...item} />

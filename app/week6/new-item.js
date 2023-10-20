@@ -20,7 +20,7 @@ function NewItem({onAddItem}) {
 };
 return (
   <main >
-      <div className=" bg-blue-gray-100 ml-10 justify-center">
+      <div className=" bg-blue-gray-100 ml-10 justify-center ">
         <div className="w-full max-w-md bg-blue-900 p-8 rounded-lg shadow-md">
           <form onSubmit={handleSubmit}>
             <label className="block mb-4">
