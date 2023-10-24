@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Item from './item';
 
-function ItemList({ items }) {
+function ItemList({ items, onItemSelect }) {
   const [sortBy, setSortBy] = useState("name");
 
   const sortedItems = [...items].sort((item1, item2) => {
@@ -35,7 +35,11 @@ function ItemList({ items }) {
       </div>
       <ul>
         {sortedItems.map(item => (
-          <Item key={item.id} {...item} />
+          <Item 
+            key={item.id} 
+            {...item} 
+            onSelect={() => onItemSelect(item)}
+          />
         ))}
       </ul>
     </div>
@@ -51,6 +55,7 @@ ItemList.propTypes = {
       category: PropTypes.string.isRequired,
     })
   ).isRequired,
+  onItemSelect: PropTypes.func.isRequired,  // Added the propType for the new onItemSelect prop
 };
 
 export default ItemList;
