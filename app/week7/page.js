@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import ItemList from './item-list';
 import NewItem from './new-item';
-import MealIdeas from './meal-idea'; // import the MealIdeas component
+import MealIdeas from './meal-ideas'; // import the MealIdeas component
 import itemsData from './items.json';
 
 function Page() {
