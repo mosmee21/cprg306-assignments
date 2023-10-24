@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Item({ name, quantity, category }) {
+function Item({ name, quantity, category ,onSelect}) {
   return (
     <div className="bg-blue-200  border p-4 m-5  shadow-md mb-4 max-w-md"
           onClick={() => onSelect({name, quantity, category})}>
