@@ -17,15 +17,23 @@ function MealIdeas({ ingredient }) {
 
     return (
         <div>
-            <h2>Meal Ideas for {ingredient}</h2>
-            <ul>
-                {meals.map(meal => (
-                    <li key={meal.idMeal}>
-                        <img src={meal.strMealThumb} alt={meal.strMeal} width="50" height="50" />
-                        {meal.strMeal}
-                    </li>
-                ))}
-            </ul>
+            <h2 className='text-3xl font-bold text-black'>Meal Ideas</h2>
+            {meals.length === 0 ? (
+                <p className='pt-2 font-bold text-black'>No meal ideas found for {ingredient}</p>
+            ) : (
+                <>
+                    <p className='pt-2 pb-2 font-bold text-black'>Here are some meal ideas using {ingredient}:</p>
+                    <ul className='mt-2 space-y-2'>
+                        {meals.map(meal => (
+                            <li key={meal.idMeal}>
+                                <div className="rounded p-2 bg-blue-900 hover:bg-pink-900 cursor-pointer "> {/* Fixed here */}
+                                    {meal.strMeal}
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </>
+            )}
         </div>
     );
 }

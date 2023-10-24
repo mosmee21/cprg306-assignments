@@ -34,10 +34,10 @@ function ItemList({ items, onItemSelect }) {
         </button>
       </div>
       <ul>
-        {sortedItems.map(item,index=> (
+        {sortedItems.map((item)=>(
           <Item key={item.id} 
             {...item} 
-            {...index}
+          
             onSelect= {onItemSelect}
           />
         ))}
