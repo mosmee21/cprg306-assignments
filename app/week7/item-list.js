@@ -34,10 +34,11 @@ function ItemList({ items, onItemSelect }) {
         </button>
       </div>
       <ul>
-        {sortedItems.map(item => (
+        {sortedItems.map(item,index=> (
           <Item 
             key={item.id} 
             {...item} 
+            {...index}
             onSelect={() => onItemSelect(item)}
           />
         ))}
@@ -53,9 +54,8 @@ ItemList.propTypes = {
       name: PropTypes.string.isRequired,
       quantity: PropTypes.number.isRequired,
       category: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  onItemSelect: PropTypes.func.isRequired,  // Added the propType for the new onItemSelect prop
+    })).isRequired,
+    onItemSelect: PropTypes.func.isRequired,  // Added the propType for the new onItemSelect prop
 };
 
 export default ItemList;
