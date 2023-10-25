@@ -16,7 +16,7 @@ function MealIdeas({ ingredient }) {
     }, [ingredient]);
 
     return (
-        <div>
+        <div className="max-w-sm ml-0">
             <h2 className='text-3xl font-bold text-black'>Meal Ideas</h2>
             {meals.length === 0 ? (
                 <p className='pt-2 font-bold text-black'>No meal ideas found for {ingredient}</p>
@@ -26,7 +26,7 @@ function MealIdeas({ ingredient }) {
                     <ul className='mt-2 space-y-2'>
                         {meals.map(meal => (
                             <li key={meal.idMeal}>
-                                <div className="rounded p-2 bg-blue-900 hover:bg-pink-900 cursor-pointer "> {/* Fixed here */}
+                                <div className="rounded p-2 bg-blue-900 hover:bg-pink-900 cursor-pointer "> 
                                     {meal.strMeal}
                                 </div>
                             </li>

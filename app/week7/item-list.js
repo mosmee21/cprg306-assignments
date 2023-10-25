@@ -54,7 +54,7 @@ ItemList.propTypes = {
       quantity: PropTypes.number.isRequired,
       category: PropTypes.string.isRequired,
     })).isRequired,
-    onItemSelect: PropTypes.func.isRequired,  // Added the propType for the new onItemSelect prop
+    onItemSelect: PropTypes.func.isRequired,  
 };
 
 export default ItemList;
