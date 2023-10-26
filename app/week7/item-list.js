@@ -22,13 +22,13 @@ function ItemList({ items, onItemSelect }) {
         <span className="mr-2 text-lg text-black font-bold">Sort by:</span>
         <button
           onClick={() => setSortBy('name')}
-          className={`${sortBy === 'name' ? 'active-class' : ''} m-2 bg-blue-900 text-white px-4 py-2 mr-2 `}
+          className={`${sortBy === 'name' ? 'active-class' : ''} bg-blue-900 text-white px-4 py-2 mr-2 `}
         >
           Name
         </button>
         <button
           onClick={() => setSortBy('category')}
-          className={`${sortBy === 'category' ? 'active-class' : ''} m-2 bg-blue-900 text-white px-4 py-2 ml-2`}
+          className={`${sortBy === 'category' ? 'active-class' : ''} bg-blue-900 text-white px-4 py-2 ml-2`}
         >
           Category
         </button>

@@ -20,16 +20,16 @@ function Page() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-lime-500 to-cyan-500 py-2">
+    <div className=" bg-gradient-to-r from-lime-500 to-cyan-500 py-2">
       <h1 className="text-3xl font-bold ml-10 mb-4 text-black ">Shopping List</h1>
-      <div className="flex">
-        <div className="w-1/2 p-4">
+      <div className="flex ">
+        <div className="w-1/2 ">
           <NewItem onAddItem={handleAddItem} />
           <ItemList items={items} onItemSelect={handleItemSelect} />
         </div>
         
         
-        <div className="w-1/2 p-4">
+        <div className="w-1/2">
           <MealIdeas ingredient={selectedItemName} />
         </div>
       </div>
