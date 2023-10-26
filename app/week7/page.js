@@ -22,7 +22,7 @@ function Page() {
   return (
     <div className=" bg-gradient-to-r from-lime-500 to-cyan-500 py-2">
       <h1 className="text-3xl font-bold ml-10 mb-4 text-black ">Shopping List</h1>
-      <div className="flex max-w-4xl">
+      <div className="flex ">
         <div className=" mr-10">
           <NewItem onAddItem={handleAddItem} />
           <ItemList items={items} onItemSelect={handleItemSelect} />
