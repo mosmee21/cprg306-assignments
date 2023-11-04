@@ -22,7 +22,7 @@ function Page() {
   };
 
   return (
-    <div className="bg-cover bg-no-repeat bg-center w-full min-h-screen" style={{ backgroundImage: `url(/food.jpg)` }}>
+    <div className=" bg-gradient-to-r from-lime-500 to-cyan-500 min-h-screen">
       <h1 className="text-3xl font-bold ml-10 mb-4 text-black ">Shopping List</h1>
       <div className="flex space-x-10">
         <div className="w-1/3 ">
