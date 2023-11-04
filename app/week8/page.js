@@ -34,24 +34,24 @@ const Page = () => {
     }
 
     return (
-        <div className="flex flex-col justify-center items-center h-screen bg-gray-900 text-white">
+        <div className="flex flex-col justify-center bg-gradient-to-r from-lime-500 to-cyan-500 items-center h-screen bg-gray-900 text-white">
            <div className="text-center">
             {user ? (
                 <div>
-                    <h1 className="text-3xl font-semibold mb-2 hover:animate-fade-in-down">Welcome, {user.displayName}</h1>
-                    <p className="mb-4 text-gray-400 hover:animate-zoom-in">({user.email})</p>
-                    <Link href="/week8/shopping-list" className="text-blue-500 m-5 hover:text-blue-400 transition duration-500 ease-in-out hover:underline hover:scale-110 hover:shadow-lg">
-                        Go to Shopping List
+                    <h1 className="text-3xl text-blue-900 font-bold mb-2 ">Welcome, {user.displayName}</h1>
+                    <p className="mb-4 font-bold text-gray-900">({user.email})</p>
+                    <Link href="/week8/shopping-list" className="text-rose-900 m-5 font-bold hover:text-white hover:underline hover:scale-110 ">
+                        Continue to your Shopping List
                     </Link>
                     <button onClick={handleLogout} className="px-6 m-5 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition duration-500 ease-in-out mb-4 hover:animate-pulse">
-                        Logout
+                        Signout
                     </button>
                 </div>
             ) : (
                 <div>
                     
-                    <button onClick={handleLogin} className="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-500 ease-in-out hover:animate-bounce">
-                        Login with GitHub
+                    <button onClick={handleLogin} className="px-6 py-2 bg-blue-900 text-white rounded hover:bg-rose-500 transition duration-500 ease-in-out  hover:animate-pulse">
+                        Sign in with GitHub
                     </button>
                 </div>
             )}
