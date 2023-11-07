@@ -12,7 +12,8 @@ export default function page() {
         <Link href="./week5"className="hover:text-white">Week 5</Link><br/>
         <Link href="./week6"className="hover:text-white">Week 6</Link><br/>
         <Link href="./week7"className="hover:text-white">Week 7</Link><br/>
-        <Link href="./week8"className="hover:text-white">Week 8</Link>
+        <Link href="./week8"className="hover:text-white">Week 8</Link><br/>
+        <Link href="./week10"className="hover:text-white">Week 10</Link>
       </div>
   );
 }
