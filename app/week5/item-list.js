@@ -27,24 +27,26 @@ export default function ItemList() {
     items.sort((item1, item2) => item1.category.localeCompare(item2.category));}
   return (
       <div className="p-4">
+        <div className="flex items-center flex-wrap-nowrap ml-4">
         <button
           onClick={() => setSortBy('name')}
-          className={`${sortBy === 'name'} m-5 bg-orange-900 text-amber-300 px-2 py-2 mr-4 `}
+          className={`${sortBy === 'name'}  bg-orange-900 text-amber-300 px-2 py-2 m-1 `}
         >
           Sort by Name
         </button>
         <button
         onClick={() => setSortBy('category')}
-        className={`${sortBy === 'category'} bg-orange-900 text-amber-300 px-2 py-2 ml-2 `}
+        className={`${sortBy === 'category'} bg-orange-900 text-amber-300 px-2 py-2 m-1 `}
       >
         Sort by Category
       </button>
       <button
         onClick={() => setSortBy('grouped')}
-        className={`${sortBy === 'grouped'} bg-orange-900 text-amber-300 px-4 py-2 ml-2 `}
+        className={`${sortBy === 'grouped'} bg-orange-900 text-amber-300 px-2 py-2 m-1 `}
         >
         Group by Category
       </button>
+      </div>
       <ul>
         {sortBy === 'grouped'
           ? Object.keys(groupedItems).sort().map(category => (
