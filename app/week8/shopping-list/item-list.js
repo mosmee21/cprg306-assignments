@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Item from './item';
@@ -16,31 +14,56 @@ function ItemList({ items, onItemSelect }) {
     return 0;
   });
 
+  let groupedItems = {};
+  if (sortBy === 'grouped') {
+    groupedItems = items.reduce((acc, item) => {
+      if (!acc[item.category]) {
+        acc[item.category] = [];
+      }
+      acc[item.category].push(item);
+      return acc;
+    }, {});
+  }
+
   return (
     <div className="p-4">
-      <div className="flex items-center ml-5">
-        <span className="mr-2 text-lg text-black font-bold">Sort by:</span>
+      <div className="mb-4">
+        <span className="text-lg text-black font-bold mr-2">Sort by:</span>
         <button
           onClick={() => setSortBy('name')}
-          className={`${sortBy === 'name' ? 'active-class' : ''} bg-blue-900 text-white px-4 py-2 mr-2 `}
+          className={`${sortBy === 'name' ? 'bg-blue-900' : 'bg-blue-900'} text-white px-4 py-2 mr-2`}
         >
           Name
         </button>
         <button
           onClick={() => setSortBy('category')}
-          className={`${sortBy === 'category' ? 'active-class' : ''} bg-blue-900 text-white px-4 py-2 ml-2`}
+          className={`${sortBy === 'category' ? 'bg-blue-900' : 'bg-blue-900'} text-white px-4 py-2`}
         >
           Category
         </button>
+        <button
+          onClick={() => setSortBy('grouped')}
+          className={`${sortBy === 'grouped' ? 'bg-blue-900' : 'bg-blue-900'} text-white px-4 py-2 ml-2`}
+        >
+          Group 
+        </button>
       </div>
+
       <ul>
-        {sortedItems.map((item)=>(
-          <Item key={item.id} 
-            {...item} 
-          
-            onSelect= {onItemSelect}
-          />
-        ))}
+        {sortBy === 'grouped'
+          ? Object.keys(groupedItems).sort().map(category => (
+              <li key={category}>
+                <strong className="capitalize text-black">{category}</strong>
+                <ul>
+                  {groupedItems[category].map(item => (
+                    <Item key={item.id} {...item} onItemSelect={onItemSelect}/>
+                  ))}
+                </ul>
+              </li>
+            ))
+          : sortedItems.map(item => (
+              <Item key={item.id} {...item} onItemSelect={onItemSelect}/>
+            ))}
       </ul>
     </div>
   );
@@ -54,7 +77,7 @@ ItemList.propTypes = {
       quantity: PropTypes.number.isRequired,
       category: PropTypes.string.isRequired,
     })).isRequired,
-    onItemSelect: PropTypes.func.isRequired,  
+  onItemSelect: PropTypes.func.isRequired,
 };
 
 export default ItemList;
