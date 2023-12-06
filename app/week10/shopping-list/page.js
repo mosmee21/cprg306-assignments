@@ -1,48 +1,56 @@
 "use client";
+import { useEffect, useState } from "react";
+import { addItem, getItems } from "../_services/shopping-list-service";
+import { auth } from "../_utils/firebase";
 
-import React, { useState, useEffect } from 'react';
-import { getItems, addItem } from './_services/shopping-list-service'; // Ensure the path is correct
-import ItemList from './item-list';
-import NewItem from './new-item';
-import MealIdeas from './meal-ideas'; 
+import ItemList from "./item-list";
+import MealIdeas from "./meal-ideas";
+import NewItem from "./new-item";
 
 function Page() {
-  const [items, setItems] = useState([]);
-  const [selectedItemName, setSelectedItemName] = useState(''); 
-  const userId = 'mosmee21'; // Assuming this is a constant, if it's dynamic, use it in the dependency array of useEffect
-  
-  // Load items from Firestore
-  useEffect(() => {
-    const loadItems = async () => {
-      try {
-        const itemList = await getItems(userId); // Using getItems from the service
-        setItems(itemList);
-      } catch (error) {
-        console.error("Error loading items:", error);
-        // Handle the error appropriately
-      }
-    };
+    const [items, setItems] = useState([]);
+    const [selectedItemName, setSelectedItemName] = useState("");
+    const [user, setUser] = useState(null);
 
-    loadItems();
-  }, []); // If userId changes dynamically, use [userId]
+    useEffect(() => {
+        
+        const unsubscribe = auth.onAuthStateChanged(currentUser => {
+            setUser(currentUser);
+            if (currentUser) {
+                loadItems(currentUser.uid);
+            }
+        });
 
-  // Handle adding a new item
-  const handleAddItem = async (newItem) => {
-    try {
-      const newItemId = await addItem(userId, newItem); // Using addItem from the service
-      newItem.id = newItemId;
-      setItems(prevItems => [...prevItems, newItem]);
-    } catch (error) {
-      console.error("Error adding new item:", error);
-      // Handle the error appropriately
+       
+        return () => unsubscribe();
+    }, []);
+
+    
+    async function loadItems(uid) {
+        try {
+            const fetchedItems = await getItems(uid);
+            setItems(fetchedItems);
+        } catch (error) {
+            console.error("Error loading items:", error);
+        }
     }
-  };
 
-  // Handle item selection
-  const handleItemSelect = (item) => {
-    const cleanName = item.name.split(',')[0].trim().replace(/[^a-zA-Z ]/g, '');
-    setSelectedItemName(cleanName);
-  };
+    
+    async function handleAddItem(newItem) {
+        if (user) {
+            try {
+                const docId = await addItem(user.uid, newItem);
+                setItems(prevItems => [...prevItems, { ...newItem, id: docId }]);
+            } catch (error) {
+                console.error("Error adding item:", error);
+            }
+        }
+    }
+
+    function handleItemSelect(itemName) {
+        const cleanedName = itemName.split(',')[0].trim().replace(/[^a-zA-Z ]/g, "");
+        setSelectedItemName(cleanedName);
+    }
 
   return (
     <div className="bg-gradient-to-r from-lime-500 to-cyan-500 min-h-screen">
